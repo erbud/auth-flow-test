@@ -1,0 +1,84 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --foreground-rgb: 0, 0, 0;
+  --background-start-rgb: 214, 219, 220;
+  --background-end-rgb: 255, 255, 255;
+}
+@media (prefers-color-scheme: dark) {
+  :root {
+    --foreground-rgb: 255, 255, 255;
+    --background-start-rgb: 0, 0, 0;
+    --background-end-rgb: 0, 0, 0;
+  }
+}
+
+.container.layout {
+  display: grid;
+  min-height: 100vh;
+  grid-template-rows: 1fr auto;
+}
+
+@layer base {
+  .site-header h1 a {
+    @apply no-underline;
+  }
+  .site-header.is-sticky {
+    @apply mt-[-85px]
+  }
+  .site-header .sidebar-menu a {
+    @apply no-underline;
+  }
+  main h1 {
+    @apply text-3xl mb-5;
+  }
+  main h2 {
+    @apply text-2xl my-4;
+  }
+  main h3 {
+    @apply text-xl mt-5;
+  }
+  main h4 {
+    @apply text-lg font-bold text-slate-500;
+  }
+  main p {
+    @apply my-2;
+  }
+  main ul {
+    @apply p-2;
+  }
+  main li {
+    @apply mb-2;
+  }
+  header a,
+  footer a {
+    @apply underline;
+  }
+  main a {
+    @apply text-blue-800 underline;
+  }
+  input[type=email],
+  input[type=password],
+  input[type=text] {
+    @apply block w-full mt-1 px-3 py-2 bg-white border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-indigo-500 focus:border-indigo-500;
+  }
+  input[type=email].error-mark,
+  input[type=password].error-mark,
+  input[type=text].error-mark {
+    @apply border-red-500;
+  }
+  button[type=submit] {
+    @apply px-4 py-2 w-full flex justify-center border border-transparent rounded-md shadow-sm text-sm font-medium text-white bg-indigo-600 hover:bg-indigo-700 focus:ring-indigo-500 focus:outline-none focus:ring-2 focus:ring-offset-2;
+  }
+  .important-action-button {
+    @apply px-4 py-2 text-base font-medium rounded-md shadow-sm text-white bg-indigo-500 hover:bg-indigo-700 focus:ring-indigo-700 focus:outline-none focus:ring-2;
+  }
+  .cancel-important-action-button {
+    @apply important-action-button;
+  }
+  .confirm-important-action-button {
+    @apply bg-slate-500 hover:bg-slate-700 focus:ring-slate-700 important-action-button;
+  }
+}
